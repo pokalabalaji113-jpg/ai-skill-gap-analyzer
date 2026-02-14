@@ -4,7 +4,7 @@ def get_candidate_data():
     name = input("Enter Name of the Student : ").capitalize()
     qualification = input("Enter Highest Qualification (B.tech/Degree/M.tech/M.Sc/MBA): ").strip().lower()
     year_of_pass = input("Enter Year of Passout : ")
-    domain_name = input("Enter A Domain (genai/agentic_ai/nlp/deep_learning): ").strip().lower()
+    domain_name = input("Enter A Domain (genai/agentic_ai/nlp/deep_learning/computer_vision/data_science/ml_engineer/ai_research): ").strip().lower()
     experience = int(input("Enter No.of Years Experience : "))
     skills = []
     while True:
@@ -26,16 +26,68 @@ def get_candidate_data():
     }
     return resume
 def analyze_skills():
+    base_skills = ["python", "git", "linux"]
     list_of_domain = {
-        "genai": ["python", "llms", "prompt engineering", "hugging face", "rag"],
-        "agentic_ai": ["autonomous agents", "tool calling", "multi agent systems", "agent memory", "agent frameworks"],
-        "nlp": ["text preprocessing", "tokenization", "tf idf", "ner", "text similarity"],
-        "deep_learning": ["neural networks", "backpropagation", "cnn", "rnn", "transformers"]
-    }
+
+    "genai": base_skills+[
+        "llms", "prompt engineering", "hugging face", "rag",
+        "openai api", "vector databases", "embeddings",
+        "langchain", "fine tuning", "chatbots"
+    ],
+
+    "agentic_ai": base_skills+[
+        "autonomous agents", "tool calling", "multi agent systems",
+        "agent memory", "agent frameworks",
+        "langgraph", "task planning", "api integration",
+        "workflow automation"
+    ],
+
+    "nlp": base_skills+[
+        "text preprocessing", "tokenization", "tf idf", "ner",
+        "text similarity", "sentiment analysis",
+        "topic modeling", "word embeddings",
+        "transformers", "bert"
+    ],
+
+    "deep_learning": base_skills+[
+        "neural networks", "backpropagation", "cnn", "rnn", "lstm",
+        "transformers", "pytorch", "tensorflow",
+        "model optimization", "gpu training"
+    ],
+
+    "computer_vision": base_skills+[
+        "opencv", "image processing", "cnn",
+        "object detection", "yolo", "image classification",
+        "face recognition", "image segmentation",
+        "transfer learning"
+    ],
+
+    "data_science": base_skills+[
+        "python", "pandas", "numpy", "matplotlib", "seaborn",
+        "statistics", "data cleaning", "exploratory data analysis",
+        "feature engineering", "sql", "dashboards"
+    ],
+
+    "ml_engineer": base_skills+[
+        "scikit-learn", "feature engineering",
+        "model evaluation", "pipelines",
+        "mlops", "model deployment",
+        "docker", "fastapi",
+        "monitoring", "cloud"
+    ],
+
+    "ai_research": base_skills+[
+        "papers reading", "math", "linear algebra",
+        "probability", "pytorch", "tensorflow",
+        "experiments", "ablation studies",
+        "optimization", "new architectures"
+    ]
+}
+
     candidate = get_candidate_data()
     domain = candidate["domain_name"]
     if domain not in list_of_domain.keys():
-        return "Invalid Domain! Please choose from genai, agentic_ai, nlp, deep_learning."
+        return "Invalid Domain! Please choose from genai, agentic_ai, nlp, deep_learning,computer_vision,data_science,ml_engineer,ai_research"
     print("You have chosen the correct trending domain!")
     resume_skills = set(candidate["skills"])
     actual_skills = set(list_of_domain[domain])
