@@ -1,8 +1,143 @@
 print("-" * 30)
 print("---------- WELCOME-TO-AI-CREATIVE-WORLD ----------")
 
+import webbrowser
+
 def normalize_skill(skill):
     return skill.strip().lower().replace(" ", "_").replace("-", "_")
+domain_recommendations = {
+    "genai": {
+        "python": "https://www.youtube.com/watch?v=rfscVS0vtbw",
+        "git": "https://www.youtube.com/watch?v=RGOj5yH7evk",
+        "linux": "https://www.youtube.com/watch?v=wBp0Rb-ZJak",
+        "llms": "https://www.youtube.com/watch?v=zjkBMFhNj_g",
+        "prompt engineering": "https://www.youtube.com/watch?v=_ZvnD73m40o",
+        "hugging face": "https://www.youtube.com/watch?v=QdY3A_c6g4U",
+        "rag": "https://www.youtube.com/watch?v=T-D1OfcDW1M",
+        "openai api": "https://www.youtube.com/watch?v=ZBKpAp_6TGI",
+        "vector databases": "https://www.youtube.com/watch?v=dN0lsF2cvm4",
+        "embeddings": "https://www.youtube.com/watch?v=Z_Bk6mE3sJE",
+        "langchain": "https://www.youtube.com/watch?v=aywZrzNaKjs",
+        "fine tuning": "https://www.youtube.com/watch?v=eC6Hd1hFvos",
+        "chatbots": "https://www.youtube.com/watch?v=QdY3A_c6g4U"
+    },
+    "agentic_ai": {
+        "python": "https://www.youtube.com/watch?v=rfscVS0vtbw",
+        "git": "https://www.youtube.com/watch?v=RGOj5yH7evk",
+        "linux": "https://www.youtube.com/watch?v=wBp0Rb-ZJak",
+        "autonomous agents": "https://www.youtube.com/watch?v=example1",
+        "tool calling": "https://www.youtube.com/watch?v=V3l3K8v3HnE",
+        "multi agent systems": "https://www.youtube.com/watch?v=7V2gYc3Z4mQ",
+        "agent memory": "https://www.youtube.com/watch?v=8kFhFJbF5kA",
+        "agent frameworks": "https://www.youtube.com/watch?v=example2",
+        "langgraph": "https://www.youtube.com/watch?v=example3",
+        "task planning": "https://www.youtube.com/watch?v=1i7pI6p0r3k",
+        "api integration": "https://www.youtube.com/watch?v=example4",
+        "workflow automation": "https://www.youtube.com/watch?v=9q0z8rF9pZg"
+    },
+    "nlp": {
+        "python": "https://www.youtube.com/watch?v=rfscVS0vtbw",
+        "git": "https://www.youtube.com/watch?v=RGOj5yH7evk",
+        "linux": "https://www.youtube.com/watch?v=wBp0Rb-ZJak",
+        "text preprocessing": "https://www.youtube.com/watch?v=example5",
+        "tokenization": "https://www.youtube.com/watch?v=9kXk3rFf3kA",
+        "tf idf": "https://www.youtube.com/watch?v=4vGyIo7lD1k",
+        "ner": "https://www.youtube.com/watch?v=example6",
+        "text similarity": "https://www.youtube.com/watch?v=example7",
+        "sentiment analysis": "https://www.youtube.com/watch?v=ujId4ipkBio",
+        "topic modeling": "https://www.youtube.com/watch?v=example8",
+        "word embeddings": "https://www.youtube.com/watch?v=viZrOnJclY0",
+        "transformers": "https://www.youtube.com/watch?v=SZorAJ4I-sA",
+        "bert": "https://www.youtube.com/watch?v=xI0HHN5XKDo"
+    },
+    "deep_learning": {
+        "python": "https://www.youtube.com/watch?v=rfscVS0vtbw",
+        "git": "https://www.youtube.com/watch?v=RGOj5yH7evk",
+        "linux": "https://www.youtube.com/watch?v=wBp0Rb-ZJak",
+        "neural networks": "https://www.youtube.com/watch?v=aircAruvnKk",
+        "backpropagation": "https://www.youtube.com/watch?v=Ilg3gGewQ5U",
+        "cnn": "https://www.youtube.com/watch?v=YRhxdVk_sIs",
+        "rnn": "https://www.youtube.com/watch?v=WCUNPb-5EYI",
+        "lstm": "https://www.youtube.com/watch?v=YCzL96nL7j0",
+        "transformers": "https://www.youtube.com/watch?v=SZorAJ4I-sA",
+        "pytorch": "https://www.youtube.com/watch?v=V_xro1bcAuA",
+        "tensorflow": "https://www.youtube.com/watch?v=tPYj3fFJGjk",
+        "model optimization": "https://www.youtube.com/watch?v=IHZwWFHWa-w",
+        "gpu training": "https://www.youtube.com/watch?v=example9"
+    },
+    "computer_vision": {
+        "python": "https://www.youtube.com/watch?v=rfscVS0vtbw",
+        "git": "https://www.youtube.com/watch?v=RGOj5yH7evk",
+        "linux": "https://www.youtube.com/watch?v=wBp0Rb-ZJak",
+        "opencv": "https://www.youtube.com/watch?v=oXlwWbU8l2o",
+        "image processing": "https://www.youtube.com/watch?v=9-3eG9xYgU0",
+        "cnn": "https://www.youtube.com/watch?v=YRhxdVk_sIs",
+        "object detection": "https://www.youtube.com/watch?v=MPU2HistivI",
+        "yolo": "https://www.youtube.com/watch?v=8hL0Gk0tKfI",
+        "image segmentation": "https://www.youtube.com/watch?v=IHZwWFHWa-w",
+        "transfer learning": "https://www.youtube.com/watch?v=yofjFQddwHE",
+        "face recognition": "https://www.youtube.com/watch?v=88HdqNDQsEk",
+        "image classification": "https://www.youtube.com/watch?v=example10",
+        "data augmentation": "https://www.youtube.com/watch?v=ZcL9K0X5YJk"
+    },
+    "data_science": {
+        "python": "https://www.youtube.com/watch?v=rfscVS0vtbw",
+        "git": "https://www.youtube.com/watch?v=RGOj5yH7evk",
+        "linux": "https://www.youtube.com/watch?v=wBp0Rb-ZJak",
+        "numpy": "https://www.youtube.com/watch?v=QUT1VHiLmmI",
+        "pandas": "https://www.youtube.com/watch?v=vmEHCJofslg",
+        "matplotlib": "https://www.youtube.com/watch?v=DAQNHzOcO5A",
+        "seaborn": "https://www.youtube.com/watch?v=6GUZXDef2U0",
+        "statistics": "https://www.youtube.com/watch?v=xxpc-HPKN28",
+        "data cleaning": "https://www.youtube.com/watch?v=RjVvV7M9q6w",
+        "exploratory data analysis": "https://www.youtube.com/watch?v=xi0vhXFPegw",
+        "feature engineering": "https://www.youtube.com/watch?v=7eB7X3cPpD8",
+        "sql": "https://www.youtube.com/watch?v=HXV3zeQKqGY",
+        "dashboards": "https://www.youtube.com/watch?v=example11",
+        "eda": "https://www.youtube.com/watch?v=xi0vhXFPegw",
+        "machine learning": "https://www.youtube.com/watch?v=7eh4d6sabA0"
+    },
+    "ml_engineer": {
+        "python": "https://www.youtube.com/watch?v=rfscVS0vtbw",
+        "git": "https://www.youtube.com/watch?v=RGOj5yH7evk",
+        "linux": "https://www.youtube.com/watch?v=wBp0Rb-ZJak",
+        "scikit learn": "https://www.youtube.com/watch?v=0Lt9w-BxKFQ",
+        "feature engineering": "https://www.youtube.com/watch?v=7eB7X3cPpD8",
+        "model evaluation": "https://www.youtube.com/watch?v=example12",
+        "pipelines": "https://www.youtube.com/watch?v=example13",
+        "mlops": "https://www.youtube.com/watch?v=06-AZXmwHjo",
+        "model deployment": "https://www.youtube.com/watch?v=UbCWoMf80PY",
+        "docker": "https://www.youtube.com/watch?v=fqMOX6JJhGo",
+        "fastapi": "https://www.youtube.com/watch?v=example14",
+        "monitoring": "https://www.youtube.com/watch?v=example15",
+        "cloud": "https://www.youtube.com/watch?v=ulprqHHWlng"
+    },
+    "ai_research": {
+        "python": "https://www.youtube.com/watch?v=rfscVS0vtbw",
+        "git": "https://www.youtube.com/watch?v=RGOj5yH7evk",
+        "linux": "https://www.youtube.com/watch?v=wBp0Rb-ZJak",
+        "papers reading": "https://www.youtube.com/watch?v=733m6qBH-jI",
+        "math": "https://www.youtube.com/watch?v=LN7cCW1rSsI",
+        "linear algebra": "https://www.youtube.com/watch?v=kjBOesZCoqc",
+        "probability": "https://www.youtube.com/watch?v=SkidyDQuupA",
+        "pytorch": "https://www.youtube.com/watch?v=V_xro1bcAuA",
+        "tensorflow": "https://www.youtube.com/watch?v=tPYj3fFJGjk",
+        "ablation studies": "https://www.youtube.com/watch?v=example16",
+        "optimization": "https://www.youtube.com/watch?v=example17",
+        "new architectures": "https://www.youtube.com/watch?v=example18"
+    }
+}
+
+# Normalize all keys
+for domain, skills_dict in domain_recommendations.items():
+    domain_recommendations[domain] = {normalize_skill(skill): url for skill, url in skills_dict.items()}
+
+# Normalize all keys in domain_recommendations to match normalized skill names
+for domain in domain_recommendations:
+    domain_recommendations[domain] = {
+        normalize_skill(skill): url
+        for skill, url in domain_recommendations[domain].items()
+    }
 def get_candidate_data():
     name = input("Enter Name of the Student : ").capitalize()
     qualification = input("Enter Highest Qualification (Btech/Degree/Mtech/MSc/MBA): ").strip().lower().replace(" ","").replace("-","").replace("_","")
@@ -285,40 +420,56 @@ def calculate_score(operations,quiz_percent):
 def show_report(data, candidate):
     print("\n---------- QUIZ ROUND ----------")
     quiz_score = quiz_percentage(candidate)
-    quiz_percent = (quiz_score / 5) * 100
+    quiz_percent = round((quiz_score / 5) * 100, 2)
 
     grade, tag = get_grade_and_tag(quiz_percent)
 
     print("\n---------- QUIZ RESULT ----------")
-    print("Quiz Score:", quiz_score, "/5")
-    print("Quiz Percentage:", quiz_percent)
-    print("Grade:", grade)
-    print("Tag:", tag)
+    print(f"Quiz Score: {quiz_score}/5")
+    print(f"Quiz Percentage: {quiz_percent}%")
+    print(f"Grade: {grade}")
+    print(f"Tag: {tag}")
 
     print("\n---------- SKILL GAP REPORT ----------")
-    report = calculate_score(data,quiz_percent)
+    report = calculate_score(data, quiz_percent)
 
-    print("Resume Skill Score:", report["skill_score"], "%")
-    print("Rating:", report["rating"])
-    print("Matched Skills:", sorted(data["matched_skills"]))
-    print("Missing Skills:", report["skills_required"])
-    print("Improvement Level:", report["improvement_score"])
+    print(f"Resume Skill Score: {report['skill_score']}%")
+    print(f"Rating: {report['rating']}")
+    print(f"Matched Skills: {sorted(data['matched_skills'])}")
+    print(f"Missing Skills: {report['skills_required']}")
+    print(f"Improvement Level: {report['improvement_score']}")
 
     if report["fake_profile"]:
         print("⚠️ Profile Warning: Experience does not match skill level.")
     else:
         print("Profile looks genuine")
 
-    # Final combined judgment (this is GOLD for interviews)
-    if quiz_percent >= 70 and report["skill_score"] >= 70:
-        print("Final Review: Strong Candidate 🔥")
-    elif quiz_percent >= 50:
-        print("Final Verdict: Potential Candidate ⚡")
-    else:
-        print("Final Review: Needs Serious Upskilling 📚")
+    # 🔥 Recommended Learning Resources Section
+    selected_domain = candidate["domain_name"]
+    missing_skills = report["skills_required"]
 
-# MAIN
-# MAIN EXECUTION
+    if selected_domain in domain_recommendations:
+        domain_links = domain_recommendations[selected_domain]
+
+        print("\n📚 Recommended Learning Resources:")
+        for skill in missing_skills:
+            skill_key = normalize_skill(skill)
+            url = domain_links.get(skill_key)
+            if url:
+                print(f"- {skill} → {url}")
+            else:
+                print(f"- {skill} → No direct resource available")
+
+    # Final combined judgment
+    if quiz_percent >= 70 and report["skill_score"] >= 70:
+        print("\nFinal Review: Strong Candidate 🔥")
+    elif quiz_percent >= 50 or report["skill_score"] >= 50:
+        print("\nFinal Verdict: Potential Candidate ⚡")
+    else:
+        print("\nFinal Review: Needs Serious Upskilling 📚")
+
+
+# EXECUTION
 candidate = get_candidate_data()
 data = analyze_skills(candidate)
 
