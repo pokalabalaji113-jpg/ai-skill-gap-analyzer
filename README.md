@@ -1,48 +1,113 @@
-# AI Skill Gap Analyzer
+🚀 AI Skill Gap Analyzer
 
-<<<<<<< HEAD
-This project analyzes a candidate's skills based on a selected AI domain 
-(GenAI, Agentic AI, NLP, Deep Learning) and shows:
+A Python-based application that evaluates a candidate’s skills against selected AI domains and provides a detailed readiness analysis.
 
-- Matched skills
-- Missing skills
-- Invalid skills
-- Skill score and rating
-- Improvement suggestions
+This project simulates a real-world AI hiring evaluation system by combining skill validation, knowledge testing, and candidate authenticity checks.
 
-## Tech Stack
-- Python
-- Streamlit (UI - upcoming)
-- FastAPI (API - upcoming)
+🎯 What This Project Identifies
 
-## Features
-- Domain-wise skill validation
-- Set operations for comparison
-- Skill score calculation
-- Readiness analysis
+✅ Matched Skills
 
-## Future Enhancements
-- Web UI using Streamlit
-- REST API using FastAPI
-- Database integration
-- Resume upload feature
-=======
-A Python-based application that analyzes a user's skills and
-compares them with trending AI domains.
+❌ Missing Skills
 
-## Features
-- Skill matching using set operations
-- Skill score calculation
-- Career readiness rating
-- Future: Streamlit UI, FastAPI backend
+⚠ Invalid Skills
 
-## Tech Stack
-- Python
-- Streamlit
-- FastAPI
-- Git & GitHub
+📊 Skill Score & Rating
 
-## How to Run
-pip install -r requirements.txt  
-streamlit run app.py
->>>>>>> 5d9e7688eb752439bf93f3a335d6d504b64d21be
+🎯 Career Readiness Level
+
+🧠 Quiz-Based Knowledge Evaluation
+
+🚨 Fake Profile Detection
+
+🧠 Supported AI Domains
+
+GenAI
+
+Agentic AI
+
+NLP
+
+Deep Learning
+
+Computer Vision
+
+Data Science
+
+ML Engineer
+
+AI Research
+
+🔍 Features
+
+Domain-wise skill validation
+
+Skill comparison using Python set operations
+
+Resume skill score calculation
+
+Quiz-based domain knowledge testing
+
+Candidate grading system
+
+Improvement suggestions
+
+Academic eligibility validation
+
+Experience vs skill mismatch detection
+
+🛠 Tech Stack
+
+Python
+
+Streamlit (Planned UI)
+
+FastAPI (Planned Backend API)
+
+Git & GitHub
+
+▶ How to Run
+
+Clone the repository
+
+Navigate to the project folder
+
+Run the program:
+
+python main.py
+
+
+If using a virtual environment:
+
+pip install -r requirements.txt
+
+📂 Project Structure
+AI-Skill-Gap-Analyzer/
+│
+├── main.py
+├── README.md
+└── requirements.txt
+
+🚀 Future Improvements
+
+Web UI using Streamlit
+
+REST API using FastAPI
+
+Resume upload feature
+
+Database integration
+
+Cloud deployment
+
+📌 Project Goal
+
+To build a practical AI hiring evaluation simulator that combines:
+
+Skill Gap Analysis
+
+Knowledge Assessment
+
+Candidate Authenticity Validation
+
+Final Hiring Recommendation
