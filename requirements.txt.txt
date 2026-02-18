@@ -1,6 +1,6 @@
+python>=3.9
 streamlit
 fastapi
 uvicorn
 python-multipart
 pydantic
-

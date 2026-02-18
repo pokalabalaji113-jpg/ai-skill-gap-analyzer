@@ -400,7 +400,7 @@ def calculate_score(operations,quiz_percent):
         rating = "Average"
     else:
         rating = "Needs Improvement"
-    if missing == 0:
+    if missing == 0 or missing ==1:
         improvement = "Job Ready"
     elif missing <= 3:
         improvement = "Minor Upskilling Needed"
